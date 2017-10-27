@@ -1,0 +1,11 @@
+@mixin icon($name) {
+	@extend %icon-data-svg-#{$name};
+
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+}

@@ -1,0 +1,82 @@
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.yo-rc.json
+
+pids
+logs
+results
+
+### build process output ###
+_dist
+_output
+resources/assets/img/svg/svgmin/*
+resources/assets/img/svg/png/*
+resources/sass/grunticon/_icons*
+resources/sass/grunticon/preview.html
+resources/sass/icons/_icons*
+*.css.map
+*.js.map
+styles.tmp.scss
+
+### NPM / yarn stuff ###
+npm-debug.log
+node_modules
+
+### Caches ###
+.sass-cache
+.cache
+.idea
+.DS_Store
+.log
+.project
+.temp
+
+### WebStorm ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+/*.iml
+
+## Directory-based project format:
+.idea/
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+
+
+### SublimeText ###
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+resources/scss/icons

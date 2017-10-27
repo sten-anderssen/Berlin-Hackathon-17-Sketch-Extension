@@ -1,0 +1,24 @@
+/* ===================================================
+Mixin: Spinner
+
+tamio.honma@apertomove.de - 14.09.2016
+=================================================== */
+
+@mixin spinner($size, $weight, $color) {
+    @keyframes rotate {
+        0%    { transform: rotate(0deg); }
+        100%  { transform: rotate(360deg); }
+    }
+    width: $size;
+    height: $size;
+    display: inline-block;
+    border: $weight solid transparent;
+    border-radius: 50%;
+    border-right-color: $color;
+    animation: {
+        name: rotate;
+        duration: .85s;
+        iteration-count: infinite;
+        timing-function: linear;
+    };
+}

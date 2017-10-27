@@ -1,0 +1,22 @@
+// Micro clearfix
+
+%cf {
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	
+	&:after {
+		clear: both;
+	}
+}
+
+
+%cf-after {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

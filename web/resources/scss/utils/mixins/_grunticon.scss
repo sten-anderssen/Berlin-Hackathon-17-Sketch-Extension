@@ -1,0 +1,18 @@
+//
+// grunticon mixin
+// ---------------
+//
+// This mixin is used for delivering different sizes of grunticon-generated icons to different browsers after being string-replaced.
+//
+// @see: https://github.com/filamentgroup/grunticon
+//
+
+@mixin grunticon($width, $height) {
+  width: $width;
+  height: $height;
+
+  svg {
+    width: $width;
+    height: $height;
+  }
+}

@@ -1,0 +1,84 @@
+// 
+// respond-to mixin
+// ----------------
+// 
+// Usage:
+//
+// $respond-to-no-mediaqueries-fallback: desktop;
+// $respond-to-fallback-class: lt-ie9;
+// $respond-to-breakpoints: (
+//     desktop "(min-width: 921px)",
+//     pad "(min-width: 569px) and (max-width: 920px)",
+//     phone "(max-width: 568px)"
+// );
+//
+// 
+// Define your mediaqueries in a descending order:
+// 
+// large viewport -> small viewport -> global styles
+// 
+// 
+// .my-class {
+//     
+//     @include respond-to(desktop, pad) {
+//         color: #ff0;
+//     }
+//     
+//     @include respond-to(phone) {
+//         color: #f0f;
+//     }
+//     
+//     position: relative;
+//     
+// }
+// 
+// 
+// Important notice:
+// 
+// The viewport-ranges must be mutually exclusive!
+// 
+// <--- phone --- | --- pad --- | --- desktop --->
+// 
+// That means in the example above you shouldn't use e.g.
+// min-width: 720px because it would interfere the ranges
+// of the breakpoints pad and desktop and so would result
+// in a bad maintainability.
+// 
+
+$respond-to-no-mediaqueries-fallback: desktop;
+$respond-to-fallback-class: lt-ie9;
+$respond-to-breakpoints: (
+	desktop "screen and (min-width: 921px)",
+	pad "screen and (min-width: 569px) and (max-width: 920px)",
+	phone "screen and (max-width: 568px)",
+	hires "only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-resolution: 2dppx)"
+);
+
+@mixin respond-to($medias...) {
+	$breakpoints-length: length($respond-to-breakpoints);
+	
+	@each $media in $medias {
+		$had-a-hit: false;
+		
+		@for $i from 1 through $breakpoints-length {
+			$breakpoint: nth($respond-to-breakpoints, $i);
+			@if $media == nth($breakpoint, 1) {
+				$definition: nth($breakpoint, 2);
+				$had-a-hit: true;
+				@media #{$definition} {
+					@content;
+				}
+			}
+		}
+		
+		@if $media == $respond-to-no-mediaqueries-fallback {
+			.#{$respond-to-fallback-class} & {
+				@content;
+			}
+		}
+		
+		@if $had-a-hit == false {
+			@warn "Media #{media} not found!";
+		}
+	}
+}

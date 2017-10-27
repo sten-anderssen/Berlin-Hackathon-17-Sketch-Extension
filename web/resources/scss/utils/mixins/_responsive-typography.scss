@@ -1,0 +1,11 @@
+@mixin responsive-typography($minWidth: 1440, $minFontSize: 16, $maxWidth: 2560, $maxFontSize: 24) {
+    $responsiveFontSize: calc( #{ $minFontSize + px } + (#{$maxFontSize} - #{ $minFontSize }) * (100vw - #{ $minWidth + px }) / (#{ $maxWidth } - #{ $minWidth }) );
+
+    @media screen and (min-width: #{ $minWidth + px }) and (max-width: #{ $maxWidth + px }){
+        html { font-size: $responsiveFontSize; }
+    }
+
+    @media screen and (min-width: #{ $maxWidth + 1 + px }){
+        html { font-size: #{ $maxFontSize + px }; }
+    }
+}

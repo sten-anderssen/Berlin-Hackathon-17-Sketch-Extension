@@ -1,0 +1,36 @@
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=IE7"/>
+<title>{{title}} | {{config.title}}</title>
+<meta name="description" content="{{ description }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no"> {{! Disable phone number detection. }}
+<link rel="shortcut icon" href="{{assets}}/img/favicon/favicon.ico" type="image/x-icon">
+<link rel="icon" href="{{assets}}/img/favicon/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="57x57" href="{{assets}}/img/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="{{assets}}/img/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{{assets}}/img/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="{{assets}}/img/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{{assets}}/img/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="{{assets}}/img/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="{{assets}}/img/favicon/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="{{assets}}/img/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{{assets}}/img/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="{{assets}}/img/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{assets}}/img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{assets}}/img/favicon/favicon-16x16.png">
+<meta name="msapplication-TileImage" content="{{assets}}/img/favicon/mstile-144x144.png">
+
+
+{{#if webApp}}
+<meta name="apple-mobile-web-app-capable" content="yes"> {{! Run in full-screen mode (iOS). }}
+<meta name="mobile-web-app-capable" content="yes"> {{! Run in full-screen mode (Android). }}
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> {{! iOS Fullscreen Status Bar Color }}
+<meta name="apple-mobile-web-app-title" content="{{#if shortTitle}}{{ shortTitle }}{{else}}{{ title }}{{/if}}"> {{! Customize home screen title. }}
+<meta name="application-name" content="{{#if shortTitle}}{{ shortTitle }}{{else}}{{ title }}{{/if}}" />
+{{/if}}
+
+{{#if themeColor}}
+<meta name="theme-color" content="{{ themeColor }}"> {{! Android Lollipop Chrome Toolbar Color }}
+<meta name="msapplication-navbutton-color" content="{{ themeColor }}"> {{! Windows Phone 8 Tile Color }}
+<meta name="msapplication-TileColor" content="{{ themeColor }}"/> {{! Windows 8 Tile Color }}
+{{/if}}
