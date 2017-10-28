@@ -1,19 +1,21 @@
 {
   "compatibleVersion": 3,
   "bundleVersion": 1,
+  "description": "Share your design for easy content collaboration.",
+  "identifier": "phil.identifier",
   "commands": [
     {
-      "name": "Export Phil",
-      "identifier": "my-command-identifier",
+      "name": "Export your Artboard",
+      "identifier": "phil.command",
       "script": "./phil.js",
-      "description": "Export your Artboard with Phil.",
-      "icon": "icons/phil-logo.png"
+      "description": "Share your design for easy content collaboration on Phil.it 👴🏻",
+      "icon": "phil-logo.png"
     }
   ],
   "menu": {
     "title": "Phil",
     "items": [
-      "my-command-identifier"
+      "phil.command"
     ]
   }
 }

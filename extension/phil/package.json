@@ -1,14 +1,17 @@
 {
-  "name": "phil",
+  "name": "Phil",
   "version": "0.1.0",
   "engines": {
     "sketch": ">=3.0"
   },
   "skpm": {
-    "name": "phil",
+    "name": "Phil",
     "manifest": "src/manifest.json",
     "main": "plugin.sketchplugin"
   },
+  "resources": [
+    "icons/*.png"
+  ],
   "scripts": {
     "build": "skpm-build",
     "watch": "skpm-build --watch",

@@ -41,8 +41,13 @@ function findLabelsIn(layer) {
             if (!layer.isVisible()) {
                 break;
             }
-            var value = layer.stringValue();
+
+            var value = layer.stringValue().stringByReplacingOccurrencesOfString_withString("\u2028", "\n");
             var frame = layer.frame();
+            var textTransform = layer.styleAttributes()["MSAttributedStringTextTransformAttribute"];
+            if (textTransform === null) {
+                textTransform = 0
+            }
             labelJSON.push({
                 id: startId,
                 content: (value + ""),
@@ -59,8 +64,9 @@ function findLabelsIn(layer) {
                     size: layer.fontSize(),
                     family: layer.font().displayName() + "",
                     lineHeight: layer.paragraphStyle().minimumLineHeight(),
-                    alignment: layer.alignment,
-                    letterSpacing: layer.kerning().toFixed(2)
+                    textAlignment: layer.textAlignment(),
+                    letterSpacing: layer.kerning().toFixed(2),
+                    textTransform: Math.round(textTransform)
                 }
             });
             startId = startId + 1;
@@ -149,7 +155,7 @@ function exportPNG(toFilePath) {
     var i, slice, filePath;
     for (i = 0; i < slices.length; i++){
         slice = slices[i];
-        filePath = toFilePath + "backgroundImage." + slice.format();
+        filePath = toFilePath + "preview." + slice.format();
         slice.format();
         document.saveArtboardOrSlice_toFile(slice, filePath);
     }
@@ -157,11 +163,14 @@ function exportPNG(toFilePath) {
 
 function exportJSON(file_path) {
     // Create the JSON object from array
-    var jsonObj = { "labels": labelJSON };
+    var jsonObj = {
+        "name": artboard.name() +"",
+        "labels": labelJSON
+    };
 
     //Convert the obj to a JSON string
     var file = NSString.stringWithString(JSON.stringify(jsonObj, null, "\t"));
 
     // Save the file
-    file.writeToFile_atomically_encoding_error(file_path + 'text' + ".json", true, NSUTF8StringEncoding, null)
+    file.writeToFile_atomically_encoding_error(file_path + 'labels' + ".json", true, NSUTF8StringEncoding, null)
 }
