@@ -1,0 +1,19 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Export Phil",
+      "identifier": "my-command-identifier",
+      "script": "./phil.js",
+      "description": "Export your Artboard with Phil.",
+      "icon": "icons/phil-logo.png"
+    }
+  ],
+  "menu": {
+    "title": "Phil",
+    "items": [
+      "my-command-identifier"
+    ]
+  }
+}
