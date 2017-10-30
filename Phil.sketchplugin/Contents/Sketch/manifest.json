@@ -1,0 +1,25 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "description": "Share your design for easy content collaboration.",
+  "identifier": "phil.identifier",
+  "commands": [
+    {
+      "name": "Export your Artboard",
+      "identifier": "phil.command",
+      "script": "phil.js",
+      "description": "Share your design for easy content collaboration on Phil.it 👴🏻",
+      "icon": "phil-logo.png"
+    }
+  ],
+  "menu": {
+    "title": "Phil",
+    "items": [
+      "phil.command"
+    ]
+  },
+  "version": "0.1.0",
+  "name": "Phil",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml"
+}
